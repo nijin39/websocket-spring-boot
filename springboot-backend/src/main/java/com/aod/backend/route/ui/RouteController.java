@@ -31,12 +31,13 @@ public class RouteController {
 
     @GetMapping("/ws-delay")
     public String handleWSDelay(HttpServletRequest request){
-        log.info(Collections.list(request.getHeaderNames()).toString());
-        log.info(request.getHeader("connectionid"));
+        // long process
+        // Existing Logic
+
         sendResult.sendToAPIGW(RequestInfo.builder()
                 .connectionId(request.getHeader("connectionid"))
                 .bookingParams(new RequestInfo.BookingParams("create", "reservation", 1000))
                 .build());
-        return Collections.list(request.getHeaderNames()).toString();
+        return "Success!!";
     }
 }
