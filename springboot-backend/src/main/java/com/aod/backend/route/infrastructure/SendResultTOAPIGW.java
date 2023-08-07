@@ -32,7 +32,7 @@ public class SendResultTOAPIGW implements SendResult {
                     "{ \"message\": " +
                             "{\n" +
                             " \"name\": \"" + "jngkim" + "\",\n" +
-                            " \"phone\": \"" + "010-8652-4489" + "\",\n" +
+                            " \"phone\": \"" + requestInfo.getBookingParams().getMessage() + "\",\n" +
                             " \"message\": \"" + "Hello" + "\"\n" +
                             "}"
                             + "}" );

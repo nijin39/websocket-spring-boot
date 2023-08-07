@@ -69,7 +69,7 @@ export class AoDv2Stack extends cdk.Stack {
     new ecrdeploy.ECRDeployment(this, "DeployDockerImage", {
       src: new ecrdeploy.DockerImageName(image.imageUri),
       dest: new ecrdeploy.DockerImageName(
-        `${cdk.Aws.ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/springboot-backend:202308062253`
+        `${cdk.Aws.ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/springboot-backend:202308070936`
       ),
     });
     //---------- End Docker Setting
@@ -125,7 +125,7 @@ export class AoDv2Stack extends cdk.Stack {
             rollback: true,
           },
           taskImageOptions: {
-            image: ecs.ContainerImage.fromEcrRepository(ecr, "202308062253"),
+            image: ecs.ContainerImage.fromEcrRepository(ecr, "202308070936"),
             containerPort: 8080,
             logDriver: ecs.LogDrivers.awsLogs({
               streamPrefix: id,

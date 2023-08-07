@@ -43,10 +43,11 @@ public class RouteController {
     public String handleWSDelay(HttpServletRequest request){
         // long process
         // Existing Logic
+        String result = delayResponse();
 
         sendResult.sendToAPIGW(RequestInfo.builder()
                 .connectionId(request.getHeader("connectionid"))
-                .bookingParams(new RequestInfo.BookingParams("create", "reservation", 1000))
+                .bookingParams(new RequestInfo.BookingParams("create", result, 100))
                 .build());
         return "Success!!";
     }
