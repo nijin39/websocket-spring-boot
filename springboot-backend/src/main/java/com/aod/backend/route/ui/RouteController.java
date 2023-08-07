@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -28,6 +29,15 @@ public class RouteController {
         return "HI11";
     }
 
+    @GetMapping("/delay")
+    public String delayResponse() {
+        try {
+            TimeUnit.SECONDS.sleep(30);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return "Delayed";
+    }
 
     @GetMapping("/ws-delay")
     public String handleWSDelay(HttpServletRequest request){
